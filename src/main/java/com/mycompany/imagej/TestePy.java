@@ -45,7 +45,7 @@ public class TestePy implements PlugInFilter {
 		try {
 			
 			
-			IJ.save(tempDir+File.separator+"some-image.jpg");
+			IJ.save(tempDir+File.separator+"some-image");
 
 			String testeStrings = "import sys\n" + "import pyvips\n" + "import logging     \n"
 					+ "LOG_FILENAME = 'log.txt'\n" + "logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)\n"
@@ -75,13 +75,10 @@ public class TestePy implements PlugInFilter {
 			out2.close();
 			if (showDialog()) {
 				Process p1 = Runtime.getRuntime()
-						.exec(env + "python "+tempDir+File.separator+"testStrings.py "+tempDir+File.separator+"some-image.jpg "+tempDir+File.separator+"x.jpg " + valor);
-				Process p2 = Runtime.getRuntime()
-						.exec(env + "python3 "+tempDir+File.separator+"testStrings.py  "+tempDir+File.separator+"some-image.jpg "+tempDir+File.separator+"x.jpg " + valor);
+						.exec(env + "python "+tempDir+File.separator+"testStrings.py "+tempDir+File.separator+"some-image.tif "+tempDir+File.separator+"x.tif " + valor);
 				p1.waitFor();
-				p2.waitFor();
 
-				ImagePlus imagemNova = IJ.openImage(tempDir+File.separator+"x.jpg");
+				ImagePlus imagemNova = IJ.openImage(tempDir+File.separator+"x.tif");
 				imagemNova.show();
 
 				IJ.showMessage("executado sem erro");

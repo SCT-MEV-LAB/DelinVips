@@ -1,21 +1,21 @@
 Manifest-Version: 1.0
-Built-By: louis
-Build-Jdk: 11.0.4
-Package: com.mycompany.imagej
-Class-Path: ij-1.52i.jar jlibvips-1.3.0.RELEASE.jar jna-4.5.2.jar groovy
- -2.5.4.jar
-Specification-Title: Delin Vips
-Specification-Version: 1.0
-Specification-Vendor: My Company
 Implementation-Title: Delin Vips
-Implementation-Version: 1.0.0
-Implementation-Vendor-Id: com.mycompany
-Implementation-Vendor: My Company
-Implementation-URL: http://mycompany.com/imagej/delin-vips/
-Main-Class: com.mycompany.imagej.Process_Pixels
 Automatic-Module-Name: com.mycompany.imagej
-Created-By: Maven Integration for Eclipse
-Implementation-Build: da1568789e2bf91e87ac845632944bf5c1f6b115
-Implementation-Date: 2019-11-02T20:08:04+0000
+Package: com.mycompany.imagej
+Implementation-Version: 1.0.0
+Built-By: cleobarr
+Specification-Vendor: My Company
+Specification-Title: Delin Vips
+Implementation-Vendor-Id: com.mycompany
+Class-Path: ij-1.52i.jar jlibvips-1.3.0.RELEASE.jar jna-4.5.2.jar groo
+ vy-2.5.4.jar
+Implementation-Date: 2020-04-07T21:44:23+0000
+Implementation-Vendor: My Company
+Main-Class: com.mycompany.imagej.Process_Pixels
 Premain-Class: 
+Implementation-Build: 6a7ea76e6a73410545acd06fc1ada75d61d0cd1e
+Build-Jdk: 1.8.0_241
+Specification-Version: 1.0
+Implementation-URL: http://mycompany.com/imagej/delin-vips/
+Created-By: Maven Integration for Eclipse
 
