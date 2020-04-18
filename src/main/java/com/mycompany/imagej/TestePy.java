@@ -28,6 +28,8 @@ public class TestePy implements PlugInFilter {
 	protected String env;
 	protected String property = "java.io.tmpdir"; 
 	protected String tempDir = System.getProperty(property);
+	protected String nomeArquivo;
+	protected String dirArquivo;
 
 	@Override
 	public int setup(String arg, ImagePlus imp) {
@@ -37,6 +39,8 @@ public class TestePy implements PlugInFilter {
 		}
 
 		image = imp;
+		nomeArquivo = image.getOriginalFileInfo().fileName;
+		dirArquivo = image.getOriginalFileInfo().directory;
 		return DOES_8G | DOES_16 | DOES_32 | DOES_RGB;
 	}
 
@@ -44,9 +48,9 @@ public class TestePy implements PlugInFilter {
 	public void run(ImageProcessor ip) {
 		try {
 			
-			
-			IJ.save(tempDir+File.separator+"some-image");
+			image.close();
 
+						
 			String testeStrings = "import sys\n" + "import pyvips\n" + "import logging     \n"
 					+ "LOG_FILENAME = 'log.txt'\n" + "logging.basicConfig(filename=LOG_FILENAME, level=logging.DEBUG)\n"
 					+ "#logging.basicConfig(level = logging.DEBUG)\n" + "#            \n" + "#   \n" + "#    \n"
@@ -75,10 +79,10 @@ public class TestePy implements PlugInFilter {
 			out2.close();
 			if (showDialog()) {
 				Process p1 = Runtime.getRuntime()
-						.exec(env + "python "+tempDir+File.separator+"testStrings.py "+tempDir+File.separator+"some-image.tif "+tempDir+File.separator+"x.tif " + valor);
+						.exec(env + "python "+tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
 				p1.waitFor();
-
-				ImagePlus imagemNova = IJ.openImage(tempDir+File.separator+"x.tif");
+				
+				ImagePlus imagemNova = IJ.openImage(tempDir+File.separator+nomeArquivo);
 				imagemNova.show();
 
 				IJ.showMessage("executado sem erro");
@@ -86,6 +90,7 @@ public class TestePy implements PlugInFilter {
 				out.write(env);
 				out.close();
 			}
+
 		} catch (IOException | InterruptedException e) {
 			IJ.showMessage(e.getMessage());
 		}
