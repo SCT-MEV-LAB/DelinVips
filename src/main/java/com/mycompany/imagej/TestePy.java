@@ -18,11 +18,12 @@ import java.io.IOException;
 import ij.IJ;
 import ij.ImageJ;
 import ij.ImagePlus;
+import ij.WindowManager;
 import ij.gui.GenericDialog;
-import ij.plugin.filter.PlugInFilter;
+import ij.plugin.PlugIn;
 import ij.process.ImageProcessor;
 
-public class TestePy implements PlugInFilter {
+public class TestePy implements PlugIn	 {
 	protected ImagePlus image;
 	protected double valor;
 	protected String env;
@@ -31,24 +32,16 @@ public class TestePy implements PlugInFilter {
 	protected String nomeArquivo;
 	protected String dirArquivo;
 
-	@Override
-	public int setup(String arg, ImagePlus imp) {
-		if (arg.equals("about")) {
-			showAbout();
-			return DONE;
-		}
-
-		image = imp;
-		nomeArquivo = image.getOriginalFileInfo().fileName;
-		dirArquivo = image.getOriginalFileInfo().directory;
-		return DOES_8G | DOES_16 | DOES_32 | DOES_RGB;
-	}
+	
 
 	@Override
-	public void run(ImageProcessor ip) {
+	public void run(String ip) {
 		try {
 			
-			image.close();
+			nomeArquivo  = WindowManager.getCurrentImage().getOriginalFileInfo().fileName;
+			dirArquivo   = WindowManager.getCurrentImage().getOriginalFileInfo().directory;
+			WindowManager.getCurrentImage().close();
+
 
 						
 			String testeStrings = "import sys\n" + "import pyvips\n" + "import logging     \n"
@@ -94,7 +87,6 @@ public class TestePy implements PlugInFilter {
 		} catch (IOException | InterruptedException e) {
 			IJ.showMessage(e.getMessage());
 		}
-		image.updateAndDraw();
 
 	}
 
