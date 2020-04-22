@@ -93,8 +93,8 @@ public class TestePy implements PlugIn	 {
 	private boolean showDialog() {
 		GenericDialog gd = new GenericDialog("Valor QQ");
 
-		gd.addNumericField("valor QQ", 0.00, 2);
-		gd.addStringField("selecionar env", env);
+		gd.addNumericField("Threshold", 0.00, 2);
+		gd.addStringField("Selecionar Env", env);
 
 		gd.showDialog();
 		if (gd.wasCanceled())
