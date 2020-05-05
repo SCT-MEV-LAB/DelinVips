@@ -5,7 +5,7 @@
 
 ## Table of Contents (Optional)
 
-> If your `README` has a lot of info, section headers might be nice.
+> 
 
 - [Definition](#definition)
 - [Contributing](#contributing)
@@ -21,7 +21,12 @@
 ---
 ## Definition
 
+This repo  deal with  delineation algorithm for image processing. It contains the source code for DelinVips filter (i.e., plugins developed by the  Scanning Electron Microscope laboratory  team at the Mineral Center of Technology). Check the packages directory for all plugins.
+
 Delineation filter, which is  considered a sort of image preprocessing, is a common operation by consisting of scanning an image, looking for transitions between phases and choosing which phase the pixels belong to. In general, delineation filters are implemented using edge detection filters (Gonzalez $\&$ Woods, 2002) or through mathematical morphology (Serra, 1982 e 1988).
+
+
+
 
 --- 
 ## Prerequisites
