@@ -27,7 +27,7 @@ Delineation filter, which is  considered a sort of image preprocessing, is a com
 --- 
 ## Prerequisites
 
-- If you want more syntax highlighting, format your code like this:
+- For Linux platform you have to do:
 
 > update and install this package first
 
