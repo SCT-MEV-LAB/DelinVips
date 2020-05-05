@@ -8,7 +8,6 @@
 > If your `README` has a lot of info, section headers might be nice.
 
 - [Definition](#definition)
-- [Features](#features)
 - [Contributing](#contributing)
 - [Team](#team)
 - [FAQ](#faq)
@@ -62,7 +61,7 @@ $ wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 ```
 ---
 ## Results
-We tested the performance of the proposed algorithm in different data sets. For this case, original image is a mineral ones obtained by reflected light optical microscopy (Figure \ref{a}). This input image have resolution of $1024 \times 1024$ pixels,  TIFF file,  8-bits and 1,1 MB.  By considering a Threshold parameter T=40 in the Delin filter with 3x3 mask, the processed computational time is given by  0m0,792s.
+We tested the performance of the proposed algorithm in different data sets. For this case, original image is a mineral ones obtained by reflected light optical microscopy (Figure \ref{a}). This input image have resolution of 1024 x 1024 pixels,  TIFF file,  8-bits and 1,1 MB.  By considering a Threshold parameter T=40 in the Delin filter with 3x3 mask, the processed computational time is given by  0m0,792s.
 
 8bit and 1024x1024 pixels input image
 
@@ -76,4 +75,5 @@ Output image after using the Delin filter with threshold value 100.
 ![delinT100](https://user-images.githubusercontent.com/55209164/81089882-4f6cde80-8ed3-11ea-92ed-bc68b7eef2ce.jpg)
 
 
+## Team
 
