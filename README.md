@@ -64,9 +64,13 @@ $ wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip
 ## Results
 We tested the performance of the proposed algorithm in different data sets. For this case, original image is a mineral ones obtained by reflected light optical microscopy (Figure \ref{a}). This input image have resolution of $1024 \times 1024$ pixels,  TIFF file,  8-bits and 1,1 MB.  By considering a Threshold parameter T=40 in the Delin filter with 3x3 mask, the processed computational time is given by  0m0,792s.
 
-Input image:
+8bit and 1024x1024 pixels input image
 ![delin](https://user-images.githubusercontent.com/55209164/81089091-4c252300-8ed2-11ea-9610-507172798f78.jpg)  
 
+
+
+
+Output image after using the Delin filter with threshold 100.
 
 
 
