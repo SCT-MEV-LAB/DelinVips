@@ -8,8 +8,8 @@
 > 
 
 - [Definition](#definition)
-- [Contributing](#contributing)
-- [Team](#team)
+- [Prerequisites](#prerequisites)
+- [Results](#results)
 - [FAQ](#faq)
 - [Support](#support)
 - [License](#license)
@@ -80,5 +80,5 @@ Output image after using the Delin filter with threshold value 100.
 ![delinT100](https://user-images.githubusercontent.com/55209164/81089882-4f6cde80-8ed3-11ea-92ed-bc68b7eef2ce.jpg)
 
 
-## Team
+## Support
 
