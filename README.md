@@ -71,7 +71,7 @@ We tested the performance of the proposed algorithm in different data sets. For 
 
 
 
-Output image after using the Delin filter with threshold 100.
+Output image after using the Delin filter with threshold value 100.
 
 ![delinT100](https://user-images.githubusercontent.com/55209164/81089882-4f6cde80-8ed3-11ea-92ed-bc68b7eef2ce.jpg)
 
