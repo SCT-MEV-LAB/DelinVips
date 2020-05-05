@@ -39,22 +39,22 @@ $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install default-jdk
 $ sudo  apt-get install wget
 ```
-> Installing python
+> Install python
 
 ```shell
 $ sudo apt-get install python 
 ```
-> Installing Libvips
+> Install [Libvips](https://github.com/libvips/libvips)
 ```shell
 $ sudo apt-get install libvips libvips-dev 
 $ sudo apt-get install libvips-tools
 ```
->Installing pyvips
+>Install pyvips
 ```shell
 $ sudo apt install python-pip
 $ pip install --user pyvips 
 ```
-> Installing FIJI
+> Install FIJI
 ```shell
 $ wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip 
 ```
