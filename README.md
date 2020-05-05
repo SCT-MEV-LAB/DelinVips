@@ -22,11 +22,6 @@
 
 This repo  deal with  delineation algorithm for image processing. It contains the source code for DelinVips filter (i.e., plugins developed by the  Scanning Electron Microscope laboratory  team at the Mineral Center of Technology ([CETEM ](www.cetem.gov.br)). Check the packages directory for all plugins.
 
-Delineation filter, which is  considered a sort of image preprocessing, is a common operation by consisting of scanning an image, looking for transitions between phases and choosing which phase the pixels belong to. In general, delineation filters are implemented using edge detection filters (Gonzalez $\&$ Woods, 2002) or through mathematical morphology (Serra, 1982 e 1988).
-
-
-
-
 --- 
 ## Prerequisites
 
@@ -64,6 +59,10 @@ $ pip install --user pyvips
 $ wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip 
 ```
 ---
+## Usage
+
+DelinVips filter can be used for determining  edges and lines pixels in the pre-processing of an image. 
+
 ## Results
 We tested the performance of the proposed algorithm in different data sets. For this case, original image is a mineral ones obtained by reflected light optical microscopy (Figure \ref{a}). This input image have resolution of 1024 x 1024 pixels,  TIFF file,  8-bits and 1,1 MB.  By considering a Threshold parameter T=40 in the Delin filter with 3x3 mask, the processed computational time is given by  0m0,792s.
 
