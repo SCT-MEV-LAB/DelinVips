@@ -20,7 +20,7 @@
 ---
 ## Definition
 
-This repo  deal with  delineation algorithm for image processing. It contains the source code for DelinVips filter (i.e., plugins developed by the  Scanning Electron Microscope laboratory  team at the Mineral Center of Technology ([CETEM ](www.cetem.gov.br)). Check the packages directory for the plugins.
+This repo  deal with  delineation algorithm for image processing proposed by Gomes O.F. (See  ...). It contains the source code for DelinVips filter (i.e., plugins developed by the  Scanning Electron Microscope laboratory  team at the Mineral Center of Technology ([CETEM ](www.cetem.gov.br)). Check the packages directory for the plugins.
 
 --- 
 ## Prerequisites
