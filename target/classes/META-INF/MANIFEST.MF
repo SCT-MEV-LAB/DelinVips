@@ -9,11 +9,11 @@ Specification-Title: Delin Vips
 Implementation-Vendor-Id: com.mycompany
 Class-Path: ij-1.52i.jar jlibvips-1.3.0.RELEASE.jar jna-4.5.2.jar groo
  vy-2.5.4.jar
-Implementation-Date: 2020-04-22T04:05:01+0000
+Implementation-Date: 2020-05-11T00:53:35+0000
 Implementation-Vendor: My Company
 Main-Class: com.mycompany.imagej.Process_Pixels
 Premain-Class: 
-Implementation-Build: 504ce734e451f95efef5ef86d10f79c29d3de927
+Implementation-Build: 6ec2ff7959625c16697aa8a189535d9e1153919a
 Build-Jdk: 1.8.0_241
 Specification-Version: 1.0
 Implementation-URL: http://mycompany.com/imagej/delin-vips/

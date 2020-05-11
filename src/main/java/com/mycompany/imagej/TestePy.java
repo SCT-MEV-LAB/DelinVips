@@ -14,6 +14,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.FileVisitOption;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Arrays;
+import java.util.HashSet;
 
 import ij.IJ;
 import ij.ImageJ;
@@ -21,7 +30,6 @@ import ij.ImagePlus;
 import ij.WindowManager;
 import ij.gui.GenericDialog;
 import ij.plugin.PlugIn;
-import ij.process.ImageProcessor;
 
 public class TestePy implements PlugIn	 {
 	protected ImagePlus image;
@@ -29,8 +37,10 @@ public class TestePy implements PlugIn	 {
 	protected String env;
 	protected String property = "java.io.tmpdir"; 
 	protected String tempDir = System.getProperty(property);
+	protected String homeDir = System.getProperty("user.home");
 	protected String nomeArquivo;
 	protected String dirArquivo;
+	protected boolean isEnv;
 
 	
 
@@ -70,9 +80,17 @@ public class TestePy implements PlugIn	 {
 			BufferedWriter out2 = new BufferedWriter(new FileWriter(tempDir+File.separator+"testStrings.py"));
 			out2.write(testeStrings);
 			out2.close();
+			
+			if (env==null)
+				isEnv = isShowEnv();
+			
 			if (showDialog()) {
-				Process p1 = Runtime.getRuntime()
-						.exec(env + "python "+tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
+				Process p1 = null;
+				if (env==null)
+					 p1 = Runtime.getRuntime().exec("python "+tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
+				else
+					 p1 = Runtime.getRuntime().exec(env +tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
+				
 				p1.waitFor();
 				
 				ImagePlus imagemNova = IJ.openImage(tempDir+File.separator+nomeArquivo);
@@ -80,6 +98,7 @@ public class TestePy implements PlugIn	 {
 
 				IJ.showMessage("executado sem erro");
 				BufferedWriter out = new BufferedWriter(new FileWriter(tempDir+File.separator+"config-delin.txt"));
+				if (env!=null)
 				out.write(env);
 				out.close();
 			}
@@ -94,7 +113,9 @@ public class TestePy implements PlugIn	 {
 		GenericDialog gd = new GenericDialog("Threshold value");
 
 		gd.addNumericField("Threshold", 0.00, 2);
-		gd.addStringField("Selecionar Env", env);
+		
+		if (isEnv)
+			gd.addStringField("Selecionar Env", env);
 
 		gd.showDialog();
 		if (gd.wasCanceled())
@@ -102,9 +123,68 @@ public class TestePy implements PlugIn	 {
 
 		// get entered values
 		valor = gd.getNextNumber();
-		env = gd.getNextString();
+		
+		if (isEnv)
+			env = gd.getNextString();
 
 		return true;
+	}
+	
+	private boolean isShowEnv() {
+		
+		try {
+			
+			Process p1 = Runtime.getRuntime()
+					.exec("python help");
+			p1.waitFor();
+			
+			return false;
+			
+		}catch (IOException | InterruptedException e){
+			
+			int[] count = {0};
+			try {
+			    Files.walkFileTree(
+			            Paths.get(homeDir), 
+			            new HashSet<FileVisitOption>(Arrays.asList(FileVisitOption.FOLLOW_LINKS)),
+			            Integer.MAX_VALUE, new SimpleFileVisitor<Path>() {
+			                @Override
+			                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) 
+			                        throws IOException {
+			                	if (file.toString().endsWith("python.exe")) {
+			                        env = file.toString();
+			                    }
+			                	
+			                	if (file.toString().endsWith("python")) {
+			                        env = file.toString();
+			                    }
+			                	
+			                    ++count[0];
+			                    return FileVisitResult.CONTINUE;
+			                }
+
+			                @Override
+			                public FileVisitResult visitFileFailed(Path file, IOException e) 
+			                        throws IOException {
+			                    return FileVisitResult.SKIP_SUBTREE;
+			                }
+
+			                @Override
+			                public FileVisitResult preVisitDirectory(Path dir,
+			                                                         BasicFileAttributes attrs) 
+			                        throws IOException {
+			                    return FileVisitResult.CONTINUE;
+			                }
+			            });
+			    return false;
+			} catch (IOException e3) {
+				IJ.showMessage(e3.getMessage());
+				
+
+			}
+		}
+		return true;
+		
 	}
 
 	public void showAbout() {
