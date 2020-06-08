@@ -53,11 +53,11 @@ $ sudo apt-get install python3
 
 >Install pyvips (https://pypi.org/project/pyvips/)
 
-Non-conda install:
+- Non-conda install:
 ```shell
 $ pip install --user pyvips 
 ```
-Conda install:
+- Conda install:
 ```shell
 $  conda install --channel conda-forge pyvips
 ```
