@@ -25,7 +25,7 @@ This repo  deal with  delineation algorithm for image processing proposed by Gom
 --- 
 ## Prerequisites
 
-- For Linux platform you have to do:
+- For Linux/windows/mac platform you have to do:
 
 > update and install this package first
 
@@ -45,9 +45,10 @@ $ sudo  apt-get install wget
 $ sudo apt-get install python3 
 ```
 > Install [Libvips](https://github.com/libvips/libvips)
-For windows, [see Latest release](https://github.com/libvips/libvips/releases)
 
-To  build from source : [Build for Ubuntu](https://github.com/libvips/libvips/wiki/Build-for-Ubuntu)
+- For windows, [see Latest release](https://github.com/libvips/libvips/releases)
+
+- To  build from source : [Build for Ubuntu](https://github.com/libvips/libvips/wiki/Build-for-Ubuntu)
 
 
 >Install pyvips (https://pypi.org/project/pyvips/)
@@ -65,15 +66,15 @@ $  conda install --channel conda-forge pyvips
 ```shell
 $ wget https://downloads.imagej.net/fiji/latest/fiji-linux64.zip 
 ```
--Uninstall Libvips built from source, just make uninstall from the directory you ran make install in. If you no longer have the build area, you can install again, then immediately uninstall afterwards.  
+- Uninstall Libvips built from source, just make uninstall from the directory you ran make install in. If you no longer have the build area, you can install again, then immediately uninstall afterwards.  
 By default, it will  have installed to /usr/local. So, you can also just go there and delete the files by hand. 
 
 ---
 
 ## Management for delin_vips code
--vips version: 2.1.12
--Libvips version 8.8.0
--Python 3.6
+- Vips version: 2.1.12
+- Libvips version 8.8.0
+- Python 3.6
 
 
 ## Usage
