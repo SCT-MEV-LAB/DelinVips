@@ -68,7 +68,7 @@ public class TestePy implements PlugIn	 {
 					+ "	out_ps.write_to_file(sys.argv[2])\n" + "\n" + "except:\n"
 					+ "    logging.exception('Pegamos um erro aqui')\n" + "    raise";
 
-			File file = new File(tempDir+File.separator+"config-delin.txt");
+			File file = new File("plugins"+File.separator+"config-delin.txt");
 
 			if (file.exists()) {
 				FileReader arq = new FileReader(file);
@@ -76,10 +76,14 @@ public class TestePy implements PlugIn	 {
 				env = lerArq.readLine();
 				lerArq.close();
 			}
-
-			BufferedWriter out2 = new BufferedWriter(new FileWriter(tempDir+File.separator+"testStrings.py"));
-			out2.write(testeStrings);
-			out2.close();
+			
+			File fileScript = new File("plugins"+File.separator+"Delin_vips.py");
+			
+			if (!fileScript.exists()) {
+				BufferedWriter out2 = new BufferedWriter(new FileWriter("plugins"+File.separator+"Delin_vips.py"));
+				out2.write(testeStrings);
+				out2.close();
+			}
 			
 			if (env==null)
 				isEnv = isShowEnv();
@@ -87,9 +91,9 @@ public class TestePy implements PlugIn	 {
 			if (showDialog()) {
 				Process p1 = null;
 				if (env==null)
-					 p1 = Runtime.getRuntime().exec("python "+tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
+					 p1 = Runtime.getRuntime().exec("python plugins"+File.separator+"Delin_vips.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
 				else
-					 p1 = Runtime.getRuntime().exec(env +tempDir+File.separator+"testStrings.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
+					 p1 = Runtime.getRuntime().exec(env +File.separator+"plugins"+File.separator+"Delin_vips.py "+dirArquivo+nomeArquivo+" "+tempDir+File.separator+nomeArquivo+" " + valor);
 				
 				p1.waitFor();
 				
